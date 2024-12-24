@@ -1,61 +1,75 @@
 #include <gtest/gtest.h>
-#include "paint.h"
+#include "../headers/paint.h"
 
-TEST(PaintTest, AddingElems){
-  Paint paint;
-  // Заполним параметры добавляемого элемента
-  Arry<double> params;
-  params.addElement(1.0);
-  params.addElement(2.0);
-  // Добавим элемент
-  ID pointid = paint.addElement(ET_POINT,params);
-  // Проверка???  
-  ElementData ed = paint.getElementInfo(pointid);
-  ASSERT_EQ(ed.et,ET_POINT);
-  ASSERT_EQ(ed.params.getElement(0),1.0);
-  ASSERT_EQ(ed.params.getElement(1),2.0); 
+
+TEST(PaintTest, PointSecDist) {
+    Painter *painter;
+    Paint screen(painter);
+    ElementData data1;
+    data1.et = ET_POINT;
+    data1.params[0] = 10;
+    data1.params[1] = 10;
+    ElementData data_s;
+    data_s.et = ET_SECTION;
+    data_s.params[0] = -10;
+    data_s.params[1] = 20;
+    data_s.params[2] = 20;
+    data_s.params[3] = 30;
+    screen.addElement(data1);
+    screen.addElement(data_s);
+    RequirementData req;
+    req.req = ET_POINTSECTIONDIST;
+    req.objects[0] = ID(1);
+    req.objects[1] = ID(4);
+    req.params[0] = 20;
+    screen.addRequirement(req);
+    double xp = screen.getElementInfo(ID(1)).params[0];
+    double yp = screen.getElementInfo(ID(1)).params[1];
+    double xo_s = screen.getElementInfo(ID(4)).params[0];
+    double yo_s = screen.getElementInfo(ID(4)).params[1];
+    double xs_s = screen.getElementInfo(ID(4)).params[2];
+    double ys_s = screen.getElementInfo(ID(4)).params[3];
+    EXPECT_EQ(abs((yo_s - ys_s) * xp - (xo_s - xs_s) * yp + xo_s * ys_s - yo_s * xs_s) /
+              sqrt((xo_s - xs_s) * (xo_s - xs_s) + (yo_s - ys_s) * (yo_s - ys_s)), 20);
 }
 
-TEST(PaintTest, save_and_load){
-  Paint paint;
-  ElementData in;
-  in.et=ET_POINT;
-  in.params.addElement(3.0);
-  in.params.addElement(2.0);
-  paint.addElement(in);
-  in=ElementData();
-  in.et=ET_POINT;
-  in.params.addElement(8.0);
-  in.params.addElement(7.0);
-  paint.addElement(in);
-  in=ElementData();
-  in.et=ET_SECTION;
-  in.params.addElement(87.0);
-  in.params.addElement(77.0);
-  in.params.addElement(78.0);
-  in.params.addElement(87.0);
-  paint.addElement(in);
-  in=ElementData();
-  in.et=ET_SECTION;
-  in.params.addElement(57.0);
-  in.params.addElement(75.0);
-  in.params.addElement(9.0);
-  in.params.addElement(1.0);
-  paint.addElement(in);
-  in=ElementData();
-  in.et=ET_CIRCLE;
-  in.params.addElement(83.0);
-  in.params.addElement(37.0);
-  in.params.addElement(38.0);
-  paint.addElement(in);
-  in=ElementData();
-  in.et=ET_CIRCLE;
-  in.params.addElement(54.0);
-  in.params.addElement(45.0);
-  in.params.addElement(4.0);
-  paint.addElement(in);
-  paint.saveToFile("piculi.pt");
-  Paint road;
-  road.loadFromFile("piculi.pt");
-  EXPECT_EQ(road, paint);
+TEST(PaintTest, DoublePointSecDist) {
+    Painter *painter;
+    Paint screen(painter);
+    ElementData data1;
+    data1.et = ET_POINT;
+    data1.params[0] = 10;
+    data1.params[1] = 10;
+    ElementData data2;
+    data1.et = ET_POINT;
+    data1.params[0] = 0;
+    data1.params[1] = 20;
+    ElementData data_s;
+    data_s.et = ET_SECTION;
+    data_s.params[0] = -10;
+    data_s.params[1] = 20;
+    data_s.params[2] = 20;
+    data_s.params[3] = 30;
+    screen.addElement(data1);
+    screen.addElement(data_s);
+    RequirementData req1;
+    req1.req = ET_POINTSECTIONDIST;
+    req1.objects[0] = ID(1);
+    req1.objects[1] = ID(5);
+    req1.params[0] = 20;
+    screen.addRequirement(req1);
+    RequirementData req2;
+    req2.req = ET_POINTSECTIONDIST;
+    req2.objects[0] = ID(2);
+    req2.objects[1] = ID(5);
+    req2.params[0] = 20;
+    screen.addRequirement(req1);
+    double xp = screen.getElementInfo(ID(1)).params[0];
+    double yp = screen.getElementInfo(ID(1)).params[1];
+    double xo_s = screen.getElementInfo(ID(4)).params[0];
+    double yo_s = screen.getElementInfo(ID(4)).params[1];
+    double xs_s = screen.getElementInfo(ID(4)).params[2];
+    double ys_s = screen.getElementInfo(ID(4)).params[3];
+    EXPECT_EQ(abs((yo_s - ys_s) * xp - (xo_s - xs_s) * yp + xo_s * ys_s - yo_s * xs_s) /
+              sqrt((xo_s - xs_s) * (xo_s - xs_s) + (yo_s - ys_s) * (yo_s - ys_s)), 20);
 }
