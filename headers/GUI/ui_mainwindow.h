@@ -284,7 +284,7 @@ public:
         enterConsole->setToolTip("Message");
 
 
-        QIcon fileIn("../Static/icons/enter.ico");
+        QIcon fileIn("./Static/icons/enter.ico");
         enterConsole->setIcon(fileIn);
         enterConsole->setIconSize(QSize(20, 20));
 
@@ -356,10 +356,10 @@ public:
         QFont font;
         font.setPointSize(9);
 
-        QIcon fileIn("../Static/icons/filein.ico");
-        QIcon fileOn("../Static/icons/fileon.ico");
-        QIcon bmpIn("../Static/icons/bmpSave.ico");
-        QIcon bmpOn("../Static/icons/bmpImp.ico");
+        QIcon fileIn("./Static/icons/filein.ico");
+        QIcon fileOn("./Static/icons/fileon.ico");
+        QIcon bmpIn("./Static/icons/bmpSave.ico");
+        QIcon bmpOn("./Static/icons/bmpImp.ico");
 
         actionSave_project_to = new QAction(MainWindow);
         actionSave_project_to->setObjectName("actionSave_project_to");
@@ -453,7 +453,7 @@ public:
                 "background-color: rgba(255, 255, 255, 0.3); "
                 "}"
         );
-        projectButton->setIcon(QIcon("../Static/icons/ChevronDown.ico"));
+        projectButton->setIcon(QIcon("./Static/icons/ChevronDown.ico"));
         projectButton->setLayoutDirection(Qt::RightToLeft);
         projectButton->setMenu(menuProject);
 
@@ -477,7 +477,7 @@ public:
                 "background-color: rgba(255, 255, 255, 0.3); "
                 "}"
         );
-        collaborationButton->setIcon(QIcon("../Static/icons/ChevronDown.ico"));
+        collaborationButton->setIcon(QIcon("./Static/icons/ChevronDown.ico"));
         collaborationButton->setLayoutDirection(Qt::RightToLeft);
         collaborationButton->setMenu(menuCollaboration);
 
@@ -507,7 +507,7 @@ public:
         closeButton = new QPushButton("", topBar);
         closeButton->setFixedSize(25, 25);
         closeButton->setToolTip("Close");
-        closeButton->setIcon(QIcon("../Static/icons/close.ico")); // Установка иконки
+        closeButton->setIcon(QIcon("./Static/icons/close.ico")); // Установка иконки
         closeButton->setStyleSheet("QPushButton { background: none; border: none; color: white; border-radius: 5px;}"
                                    "QPushButton:hover { background-color: rgba(255, 255, 255, 0.3); }"); // Подсветка при наведении
         QObject::connect(closeButton, &QPushButton::clicked, MainWindow, &QMainWindow::close);
@@ -516,7 +516,7 @@ public:
         minimizeButton = new QPushButton("", topBar);
         minimizeButton->setToolTip("Roll");
         minimizeButton->setFixedSize(25, 25);
-        minimizeButton->setIcon(QIcon("../Static/icons/minus.ico"));
+        minimizeButton->setIcon(QIcon("./Static/icons/minus.ico"));
         minimizeButton->setStyleSheet(
                 "QPushButton { background: none; border: none; color: white; border-radius: 5px; }"
                 "QPushButton:hover { background-color: rgba(255, 255, 255, 0.3); }"); // Подсветка при наведении
@@ -526,7 +526,7 @@ public:
         maximizeButton = new QPushButton("", topBar);
         maximizeButton->setFixedSize(25, 25);
         maximizeButton->setToolTip("Unwrap");
-        maximizeButton->setIcon(QIcon("../Static/icons/big.ico"));
+        maximizeButton->setIcon(QIcon("./Static/icons/big.ico"));
         maximizeButton->setStyleSheet(
                 "QPushButton { background: none; border: none; color: white; border-radius: 5px; }"
                 "QPushButton:hover { background-color: rgba(255, 255, 255, 0.3); }"); // Подсветка при наведении
@@ -543,7 +543,7 @@ public:
         settings = new QPushButton("", topBar);
         settings->setToolTip("Settings");
         settings->setFixedSize(25, 25);
-        settings->setIcon(QIcon("../Static/icons/SettingsIco.ico"));
+        settings->setIcon(QIcon("./Static/icons/SettingsIco.ico"));
         settings->setStyleSheet("QPushButton { background: none; border: none; color: white; border-radius: 5px; }"
                                 "QPushButton:hover { background-color: rgba(255, 255, 255, 0.3); }"); // Подсветка при наведении
     }
@@ -629,7 +629,7 @@ public:
         // Создание кнопки свернуть влево
         collapseButton = new QPushButton("");
         collapseButton->setToolTip("Hide");
-        collapseButton->setIcon(QIcon("../Static/icons/LeftIco.ico"));
+        collapseButton->setIcon(QIcon("./Static/icons/LeftIco.ico"));
         collapseButton->setFixedSize(30, 30);
         collapseButton->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; }"
@@ -671,7 +671,7 @@ public:
         leftMenuElements = new QPushButton("", collapsedPanel);
         leftMenuElements->setToolTip("Information");
         leftMenuElements->setFixedSize(40, 40);
-        QIcon IcoElem("../Static/icons/LeftBar/Info.png");
+        QIcon IcoElem("./Static/icons/LeftBar/Info.png");
         leftMenuElements->setIcon(IcoElem);
         leftMenuElements->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 0; }"
@@ -683,7 +683,7 @@ public:
         leftMenuMessage = new QPushButton("", collapsedPanel);
         leftMenuMessage->setToolTip("Message");
         leftMenuMessage->setFixedSize(40, 40);
-        QIcon IcoMes("../Static/icons/leftBar/Message.png");
+        QIcon IcoMes("./Static/icons/leftBar/Message.png");
         leftMenuMessage->setIcon(IcoMes);
         leftMenuMessage->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 0; }"
@@ -695,7 +695,7 @@ public:
         Figures = new QPushButton("", collapsedPanel);
         Figures->setToolTip("Primitives");
         Figures->setFixedSize(40, 40);
-        QIcon IcoM("../Static/icons/leftBar/Primitives.png");
+        QIcon IcoM("./Static/icons/leftBar/Primitives.png");
         Figures->setIcon(IcoM);
         Figures->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 0; }"
@@ -707,7 +707,7 @@ public:
         Tools = new QPushButton("", collapsedPanel);
         Tools->setToolTip("Tools");
         Tools->setFixedSize(40, 40);
-        QIcon IcoT("../Static/icons/leftBar/Pointer.png");
+        QIcon IcoT("./Static/icons/leftBar/Pointer.png");
         Tools->setIcon(IcoT);
         Tools->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 0; }"
@@ -719,7 +719,7 @@ public:
         Req = new QPushButton("", collapsedPanel);
         Req->setToolTip("Requirements");
         Req->setFixedSize(40, 40);
-        QIcon IcoR("../Static/icons/leftBar/Req.png");
+        QIcon IcoR("./Static/icons/leftBar/Req.png");
         Req->setIcon(IcoR);
         Req->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 0; }"
@@ -761,7 +761,7 @@ public:
         enterMes = new QPushButton("", messageConsole);
         enterMes->setToolTip("Message");
         enterMes->setFixedSize(25, 25);
-        enterMes->setIcon(QIcon("../Static/icons/enter.ico"));
+        enterMes->setIcon(QIcon("./Static/icons/enter.ico"));
         enterMes->setIconSize(QSize(20, 20));
         enterMes->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 5px; }"
@@ -771,7 +771,7 @@ public:
 
         smile = new QPushButton("", messageConsole);
         smile->setFixedSize(25, 25);
-        smile->setIcon(QIcon("../Static/icons/smile.ico"));
+        smile->setIcon(QIcon("./Static/icons/smile.ico"));
         smile->setIconSize(QSize(20, 20));
         smile->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; border-radius: 5px; }"
@@ -809,7 +809,7 @@ public:
         // Создание кнопки свернуть
         messageCollapseButton = new QPushButton("");
         messageCollapseButton->setToolTip("Hide");
-        messageCollapseButton->setIcon(QIcon("../Static/icons/LeftIco.ico"));
+        messageCollapseButton->setIcon(QIcon("./Static/icons/LeftIco.ico"));
         messageCollapseButton->setFixedSize(30, 30);
         messageCollapseButton->setStyleSheet(
                 "QPushButton { background: none; border: none; color: #D8D8F6; }"
@@ -876,9 +876,9 @@ public:
         figureSection->setToolTip("Section");
         figureCircle->setToolTip("Circle");
 
-        QIcon IcoCircle("../Static/icons/LeftBar/Primitives/Circle.png");
-        QIcon IcoPoint("../Static/icons/LeftBar/Primitives/Point.png");
-        QIcon IcoLine("../Static/icons/LeftBar/Primitives/Line.png");
+        QIcon IcoCircle("./Static/icons/LeftBar/Primitives/Circle.png");
+        QIcon IcoPoint("./Static/icons/LeftBar/Primitives/Point.png");
+        QIcon IcoLine("./Static/icons/LeftBar/Primitives/Line.png");
 
         figurePoint->setIcon(IcoPoint);
         figureSection->setIcon(IcoLine);
@@ -924,7 +924,7 @@ public:
         // Simple
         figureMoving = new QPushButton("", toolPanel);
         figureMoving->setToolTip("Mouse");
-        QIcon IcoMoving("../Static/icons/move.ico");
+        QIcon IcoMoving("./Static/icons/move.ico");
         figureMoving->setIcon(IcoMoving);
         figureMoving->setFixedSize(40, 40);
         figureMoving->setStyleSheet(buttonStyle);
@@ -933,7 +933,7 @@ public:
         // MOVING
         toolMoving = new QPushButton("", toolPanel);
         toolMoving->setToolTip("Moving");
-        QIcon IcoMove("../Static/icons/icoMove.ico");
+        QIcon IcoMove("./Static/icons/icoMove.ico");
         toolMoving->setIcon(IcoMove);
         toolMoving->setFixedSize(40, 40);
         toolMoving->setStyleSheet(buttonStyle);
@@ -942,7 +942,7 @@ public:
         // ROTATION
         toolRotation = new QPushButton("", toolPanel);
         toolRotation->setToolTip("Rotation");
-        QIcon IcoR("../Static/icons/icoRotation.ico");
+        QIcon IcoR("./Static/icons/icoRotation.ico");
         toolRotation->setIcon(IcoR);
         toolRotation->setFixedSize(40, 40);
         toolRotation->setStyleSheet(buttonStyle);
@@ -951,7 +951,7 @@ public:
         // RESIZE
         toolResize = new QPushButton("", toolPanel);
         toolResize->setToolTip("Resize");
-        QIcon IcoRes("../Static/icons/icoResize.ico");
+        QIcon IcoRes("./Static/icons/icoResize.ico");
         toolResize->setIcon(IcoRes);
         toolResize->setFixedSize(40, 40);
         toolResize->setStyleSheet(buttonStyle);

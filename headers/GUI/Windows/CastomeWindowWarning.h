@@ -34,7 +34,7 @@ public:
         label->setStyleSheet("color: #D8D8F6;");
         hLayout->addWidget(label);
 
-        QPixmap iconPixmap("../Static/icons/warning.ico");
+        QPixmap iconPixmap("./Static/icons/warning.ico");
         QLabel *iconLabel = new QLabel(this);
         iconLabel->setPixmap(iconPixmap.scaled(32, 32, Qt::KeepAspectRatio)); // Масштабируем иконку
         hLayout->addWidget(iconLabel);

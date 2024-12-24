@@ -470,7 +470,7 @@ void MainWindow::Print_LeftMenu(unsigned long long id, const std::string &text, 
 
     itemFigure->setFlags(itemFigure->flags() | Qt::ItemIsEditable); // Для изменения имён
 
-    QIcon figureIcon("../Static/icons/Icon.ico");
+    QIcon figureIcon("./Static/icons/Icon.ico");
     itemFigure->setIcon(0, figureIcon);
 
     itemFigures->addChild(itemFigure);
@@ -498,7 +498,7 @@ void MainWindow::Print_LeftMenu(unsigned long long id, const std::string &text, 
             paramItem->setFlags(paramItem->flags() | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         }
 
-        QIcon paramIcon("../Static/icons/Database.ico");
+        QIcon paramIcon("./Static/icons/Database.ico");
         paramItem->setIcon(0, paramIcon);
         if (paramNames[i] == "ID") {
             paramItem->setText(0, QString("%1: %2").arg(paramNames[i]).arg(id));
@@ -654,7 +654,7 @@ void MainWindow::Requar_LeftMenu(unsigned long long id, const std::string &text,
     QTreeWidgetItem *newItem = new QTreeWidgetItem(itemReq);
     newItem->setText(0, itemType);
 
-    QIcon textIcon("../Static/icons/Icon.ico");
+    QIcon textIcon("./Static/icons/Icon.ico");
     newItem->setIcon(0, textIcon);
 
     QTreeWidgetItem *idItem = new QTreeWidgetItem(newItem);
@@ -673,7 +673,7 @@ void MainWindow::Requar_LeftMenu(unsigned long long id, const std::string &text,
     QTreeWidgetItem *paramItem = new QTreeWidgetItem(newItem);
     paramItem->setText(0, QString("Parameter: %1").arg(parametr));
 
-    QIcon paramIcon("../Static/icons/Database.ico");
+    QIcon paramIcon("./Static/icons/Database.ico");
     paramItem->setIcon(0, paramIcon);
     reqItem->setIcon(0, paramIcon);
     elemItem->setIcon(0, paramIcon);

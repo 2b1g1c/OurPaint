@@ -21,7 +21,7 @@ int Application::exec() {
 }
 
 void Application::initialize() {
-    app.setWindowIcon(QIcon(R"(..\Static\logo\logo2.ico)"));
+    app.setWindowIcon(QIcon(R"(.\Static\logo\logo2.ico)"));
     QApplication::setStyle("Fusion");
     w.show();
 
